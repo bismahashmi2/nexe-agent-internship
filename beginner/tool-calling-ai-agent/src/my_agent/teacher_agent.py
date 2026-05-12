@@ -1,6 +1,6 @@
 from agents import Agent, ModelSettings
 from my_config.gemini_config import MODEL 
-from my_tool.my_tools import Plus, Multiply, Divide, Subtract
+from my_tools.my_tools import Plus, Multiply, Divide, Subtract
 
 math_agent = Agent (
     name="Math Teacher", 
