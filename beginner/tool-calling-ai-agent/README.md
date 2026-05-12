@@ -1,125 +1,148 @@
-# Tool-Calling AI Agent
+# 🛠️ Tool-Calling AI Agent
 
-A beginner AI agent project built using Gemini and OpenAI Agents SDK concepts.
+A beginner-friendly AI agent project built using **Gemini 2.5 Flash** and **OpenAI Agents SDK** concepts.
 
-
-The agent can:
-
-- perform mathematical operations using tools
-
-- return structured JSON responses
-
-- handle invalid or unsupported responses gracefully
-
-
+This project demonstrates how an AI agent can perform mathematical reasoning through tool/function calling instead of solving calculations directly.
 
 ---
 
+## 🚀 Features 
 
-
-## Features
-
-
-
-- Function / tool calling
-
-- JSON-based responses
-
-- Error handling
-
-- Multi-step mathematical reasoning
-
-
+- 🔧 Tool / function calling
+- 🧠 Multi-step mathematical reasoning
+- 📦 Structured JSON responses
+- ⚠️ Graceful error handling
+- 🤖 Agent-based architecture
 
 ---
 
+## 🏗️ Project Structure
 
+tool-calling-ai-agent/
+│
+├── src/
+│   ├── main.py
+│   │
+│   ├── my_tools/
+│   │   └── my_tools.py
+│   │
+│   ├── my_agent/
+│   │   └── teacher_agent.py
+│   │
+│   └── my_config/
+│       └── gemini_config.py
+│
+├── .env
+└── README.md
 
-## Tools Used
+---
 
+## ⚙️ How It Works
 
-
-- Python
-
-- Gemini 2.5 Flash
-
-- OpenAI Agents SDK
-
-- UV package manager
-
-
-
-## Example Query
-
-
-
-```bash
+### 1. User Input
+User enters a math query like:
 
 Add 6 and 6 then multiply by 2
 
 
+---
 
-## Example Output
+### 2. Agent Processing
+The AI agent:
+- Understands the request
+- Selects the appropriate tools
+- Performs calculations step-by-step
+- Returns a structured response
 
+---
 
+### 3. Structured Output
+The agent always responds in JSON format:
 
 {
-
-&#x20;   "response": "24"
-
+  "response": "24"
 }
 
+---
 
+### 🧪 Example Usage
+## Input
 
-## Project Structure
+Add 6 and 6 then multiply by 2
 
+## Output
 
+{
+  "response": "24"
+}
 
-src/
+--- 
 
-│
+### 🧰 Tools Used
 
-├── main.py
+- Plus Tool ➕
+- Subtract Tool ➖
+- Multiply Tool ✖
+- Divide Tool ➗
 
-├── my\_tool/
+All calculations are performed via tools — not directly by the model.
 
-│   └── my\_tools.py
+---
 
-├── my\_agent/
+### 📦 Installation
 
-│   └── teacher\_agent.py
+### Clone the Repository
+git clone <your-repo-url>
+cd tool-calling-ai-agent
 
-├── my\_config/
+### Install Dependencies
 
-│   └── gemini\_config.py
+- uv init
+- uv add openai-agents
+- uv add python-decouple
 
-
-
-
-
-## Setup
-
-
-
-# Install Dependencies
-
-uv sync
-
-
-
-# Run the Project
+### Run the Project
 
 uv run python src/main.py
 
+---
+
+### 📌 Requirements
+
+- Python 3.10+
+- OpenAI / Gemini model support via Agents SDK
+- agents library
+- uv package manager
+
+---
+
+### 🎯 Key Concepts
+
+This project demonstrates:
+
+- Agentic AI workflow design
+- Tool-calling AI agent architecture
+- Function execution through LLMs
+- Structured JSON output enforcement
+
+---
+
+### ⚠️ Notes
+
+- The agent is designed specifically for mathematical tasks
+- Responses are returned in JSON format only
+- Invalid or unsupported requests are handled gracefully
+
+---
+
+### 👨‍💻 Author
+
+Built as part of an Agentic AI Internship Task
+Focused on learning:
+
+- Tool-calling reasoning in AI agents
+- Agent workflows
+- Structured AI outputs
 
 
-# Environment Variables
-
-
-
-Create a .env file:
-
-
-
-GEMINI_API_KEY=your_api_key_here
 
