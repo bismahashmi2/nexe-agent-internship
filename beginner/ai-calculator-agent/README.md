@@ -17,6 +17,7 @@ It supports mathematical operations, remembers previous results across runs, and
 
 ## 🏗️ Project Structure
 
+```text
 ai-calculator-agent/
 │
 ├── src/
@@ -37,6 +38,7 @@ ai-calculator-agent/
 ├── .env
 ├── memory.json
 └── README.md
+```
 
 ---
 

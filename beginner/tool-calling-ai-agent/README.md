@@ -18,6 +18,7 @@ This project demonstrates how an AI agent can perform mathematical reasoning thr
 
 ## 🏗️ Project Structure
 
+```text
 tool-calling-ai-agent/
 │
 ├── src/
@@ -34,6 +35,7 @@ tool-calling-ai-agent/
 │
 ├── .env
 └── README.md
+```
 
 ---
 
