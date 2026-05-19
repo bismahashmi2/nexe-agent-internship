@@ -12,6 +12,9 @@ def clean_output(data):
         if isinstance(data, str):
             data = re.sub(r"```json|```", "", data).strip()
 
+            # remove accidental leading pipes
+            data = data.lstrip("|").strip()
+
             # Try to extract JSON from the string
             return json.loads(data)
 
@@ -27,7 +30,9 @@ def clean_output(data):
         "raw": data if data else "Empty response"
      }     
 
-response = Runner.run_sync(starting_agent=math_agent, input="Multiply 5 and 3, then add 10 to the result, and finally divide the final result by 2.")
+user_input = input("Enter your query: ")
+
+response = Runner.run_sync(starting_agent=math_agent, input=user_input)
 print(json.dumps(clean_output(response.final_output), indent=4))
 
 
