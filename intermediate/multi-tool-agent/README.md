@@ -105,9 +105,8 @@ from real web search results.
 
 ### 🧰 Tools Used
 
-- Plus Tool ➕
-- Subtract Tool ➖
-- Multiply Tool ✖
+- DuckDuckGo Library
+- 
 
 All calculations are performed via tools — not directly by the model.
 
