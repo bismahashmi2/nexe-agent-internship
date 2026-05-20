@@ -1,12 +1,13 @@
 # 🛠️ Multi-Tool Agent
 
-A intermediate-level Agentic AI System built using **Gemini 2.5 Flash** and **OpenAI Agents SDK** concepts and **SQLite database**.
+An intermediate-level Agentic AI System built using **Gemini 2.5 Flash** and **OpenAI Agents SDK** concepts and **SQLite**.
+
 
 This project demonstrates how an AI agent can dynamically use multiple tools to:
-- perform web searches
-- save data into a database
-- send real emails
-- return structured JSON responses
+- 🌐 perform web searches
+- 🗄️ save search queries into a database
+- 📧 send real emails using SMTP
+- 🤖 route tasks through intelligent tool calling
 
 ---
 
@@ -19,6 +20,7 @@ This project demonstrates how an AI agent can dynamically use multiple tools to:
 - 📦 Structured JSON responses
 - ⚠️ Graceful error handling
 - 🤖 Agent-based architecture
+- 🧠 Tool-Oriented AI Workflow
 
 ---
 
@@ -72,43 +74,63 @@ Send an email to example@gmail.com with subject "AI News"
 The AI agent:
 - Understands the request
 - Selects the appropriate tool dynamically
-- Performs the task
-- Returns a structured response
+- Executes the correct tool dynamically
+- Returns a final response
 
 ---
 
-### 3. Structured Output
-The agent always responds in JSON format:
+### 3. Tool Execution
 
-{
-  "response": "Email sent successfully."
-}
+Depending on the request, the agent may:
+
+- Perform a real web search
+- Save data into SQLite database
+- Send an actual email through SMTP
 
 ---
 
 ### 🧪 Example Usage
-## 🌐 Web Search Tool
-
-The agent can search the internet using the DDGS (DuckDuckGo Search) library.
-
-## Example
+### 🌐 Web Search Example
+#### Input
 Give me latest Robotics news
 
-The tool fetches:
-- titles
-- links
-- snippets
+#### Output
+{
+  "tool_used": "web_search",
+  "response": {
+    "query": "latest robotics news",
+    "results": [
+      {
+        "title": "Robotics News -- ScienceDaily",
+        "link": "https://www.sciencedaily.com/news/computers_math/robotics/",
+        "snippet": "Latest robotics research and advancements..."
+      }
+    ]
+  }
+}
 
-from real web search results.
+### 📧 Email Example
+#### Input
+Send an email to example@gmail.com with subject "AI News"
+
+#### Output
+{
+  "tool_used": "send_email",
+  "response": {
+    "status": "success",
+    "message": "Email sent successfully"
+  }
+}
 
 --- 
 
 ### 🧰 Tools Used
 
-- DuckDuckGo Library
-- 
+- 🌐 Web Search Tool (DDGS / DuckDuckGo Search)
+- 🗄️ SQLite Database Tool
+- 📧 SMTP Email Sending Tool
 
-All calculations are performed via tools — not directly by the model.
+All tasks are performed dynamically through tool calling.
 
 ---
 
@@ -123,6 +145,7 @@ cd multi-tool-agent
 - uv init
 - uv add openai-agents
 - uv add python-decouple
+- uv add ddgs
 
 ### Run the Project
 
@@ -138,6 +161,8 @@ uv run python src/main.py
 - uv package manager
 - sqlite3
 
+SQLite is included with Python by default.
+
 ---
 
 ### 🎯 Key Concepts
@@ -145,29 +170,51 @@ uv run python src/main.py
 This project demonstrates:
 
 - Agentic AI workflow design
-- Tool-calling AI agent architecture
-- Function execution through LLMs
-- Structured JSON output enforcement
+- Multi-tool orchestration
+- Function/tool calling through LLMs
+- Web search integration
+- Database persistence using SQLite
+- SMTP email automation
+- Structured response handling
+- External API & system integration
 
 ---
 
 ### ⚠️ Notes
 
-- The agent is designed specifically for sending emails and web search
-- Responses are returned in JSON format only
-- Invalid or unsupported requests are handled gracefully
+- The web search tool uses DuckDuckGo Search (DDGS)
+- Email sending requires valid SMTP credentials
+- Search queries are stored locally in SQLite database
+- Some search results may contain outdated or unavailable links
+- The agent uses tools dynamically depending on user requests
+
+### ⚠️ Deterministic Behavior Note
+
+This system is LLM-driven and therefore non-deterministic.
+
+- Tool selection depends on model reasoning
+- Web search results may vary over time
+- Email and external APIs depend on runtime conditions
+
+Because of this, identical inputs may produce slightly different outputs.
+However, all outputs follow a structured tool-based workflow.
 
 ---
 
 ### 👨‍💻 Author
 
-Built as part of an Agentic AI Internship Task
+Built as part of an Agentic AI Internship Task.
+
 Focused on learning:
 
-- Tool-calling reasoning in AI agents
+- Tool-calling AI systems
 - Agent workflows
-- Structured AI outputs
-......
+- External integrations
+- Database persistence
+- SMTP automation
+- Multi-tool orchestration
+- Structured AI responses
+
 
 
 
