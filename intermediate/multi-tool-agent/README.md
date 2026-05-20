@@ -161,7 +161,7 @@ uv run python src/main.py
 - uv package manager
 - sqlite3
 
-```md
+
 SQLite is included with Python by default.
 
 ---
