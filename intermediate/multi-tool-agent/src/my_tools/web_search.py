@@ -9,15 +9,14 @@ def web_search(query: str) -> dict:
     """
 
     try:
+
         results = []
 
-        # Domains not wanted
         blocked_domains = [
             "quora.com",
             "pinterest.com"
         ]
 
-        # Trusted domains (optional preference)
         trusted_domains = [
             "ieee.org",
             "techcrunch.com",
@@ -29,7 +28,11 @@ def web_search(query: str) -> dict:
         ]
 
         with DDGS() as ddgs:
-            search_results = ddgs.text(query, max_results=8)
+
+            search_results = ddgs.text(
+                query,
+                max_results=8
+            )
 
             for r in search_results:
 
@@ -49,29 +52,28 @@ def web_search(query: str) -> dict:
                     "link": link,
                     "snippet": snippet,
                     "trusted_source": any(
-                        domain in link for domain in trusted_domains
+                        domain in link
+                        for domain in trusted_domains
                     )
                 })
 
-                # Keep only top 3 good results
                 if len(results) >= 3:
                     break
 
         print("Web search tool fired ---->")
 
         return {
-            "status": "success",
-            "tool": "web_search",
-            "query": query,
-            "total_results": len(results),
-            "results": results
+            "tool_used": "web_search",
+            "response": {
+                "query": query,
+                "total_results": len(results),
+                "results": results
+            }
         }
 
     except Exception as e:
 
         return {
-            "status": "error",
-            "tool": "web_search",
-            "query": query,
-            "message": str(e)
+            "tool_used": "web_search",
+            "error": str(e)
         }

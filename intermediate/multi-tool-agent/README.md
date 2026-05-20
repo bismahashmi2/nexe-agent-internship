@@ -2,6 +2,8 @@
 
 An intermediate-level Agentic AI System built using **Gemini 2.5 Flash** and **OpenAI Agents SDK** concepts and **SQLite**.
 
+An intermediate-level Agentic AI System built using **Gemini 2.5 Flash** and **OpenAI Agents SDK** concepts and **SQLite**.
+
 
 This project demonstrates how an AI agent can dynamically use multiple tools to:
 - 🌐 perform web searches
@@ -121,6 +123,33 @@ Send an email to example@gmail.com with subject "AI News"
     "message": "Email sent successfully"
   }
 }
+#### Output
+{
+  "tool_used": "web_search",
+  "response": {
+    "query": "latest robotics news",
+    "results": [
+      {
+        "title": "Robotics News -- ScienceDaily",
+        "link": "https://www.sciencedaily.com/news/computers_math/robotics/",
+        "snippet": "Latest robotics research and advancements..."
+      }
+    ]
+  }
+}
+
+### 📧 Email Example
+#### Input
+Send an email to example@gmail.com with subject "AI News"
+
+#### Output
+{
+  "tool_used": "send_email",
+  "response": {
+    "status": "success",
+    "message": "Email sent successfully"
+  }
+}
 
 --- 
 
@@ -187,17 +216,6 @@ This project demonstrates:
 - Search queries are stored locally in SQLite database
 - Some search results may contain outdated or unavailable links
 - The agent uses tools dynamically depending on user requests
-
-### ⚠️ Deterministic Behavior Note
-
-This system is LLM-driven and therefore non-deterministic.
-
-- Tool selection depends on model reasoning
-- Web search results may vary over time
-- Email and external APIs depend on runtime conditions
-
-Because of this, identical inputs may produce slightly different outputs.
-However, all outputs follow a structured tool-based workflow.
 
 ---
 
