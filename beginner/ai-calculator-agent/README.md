@@ -145,8 +145,11 @@ cd ai-calculator-agent
 - uv add python-decouple
 
 ### Run the Project
-activate virtual environment by "source .venv/bin/activate"
+activate virtual environment by "source .venv/bin/activate". Then run:
+
+```bash
 uv run python src/main.py
+```
 
 ---
 

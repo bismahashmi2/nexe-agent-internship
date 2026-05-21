@@ -157,8 +157,11 @@ cd multi-tool-agent
 - uv add ddgs
 
 ### Run the Project
-activate virtual environment by "source .venv/bin/activate"
+activate virtual environment by "source .venv/bin/activate". Then run:
+
+```bash
 uv run python src/main.py
+```
 
 ---
 
