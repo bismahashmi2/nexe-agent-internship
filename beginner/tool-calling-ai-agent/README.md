@@ -33,6 +33,7 @@ tool-calling-ai-agent/
 │   └── my_config/
 │       └── gemini_config.py
 │
+├── .venv
 ├── .env
 └── README.md
 ```
@@ -94,7 +95,8 @@ All calculations are performed via tools — not directly by the model.
 ### 📦 Installation
 
 ### Clone the Repository
-git clone <your-repo-url>
+git clone <https://github.com/bismahashmi2/nexe-agent-internship.git>
+cd beginner
 cd tool-calling-ai-agent
 
 ### Install Dependencies
@@ -104,7 +106,7 @@ cd tool-calling-ai-agent
 - uv add python-decouple
 
 ### Run the Project
-
+activate virtual environment by "source .venv/bin/activate"
 uv run python src/main.py
 
 ---

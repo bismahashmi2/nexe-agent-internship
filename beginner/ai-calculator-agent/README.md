@@ -35,6 +35,7 @@ ai-calculator-agent/
 │   └── agent_memory/
 │       └── memory.py
 │
+├── .venv
 ├── .env
 ├── memory.json
 └── README.md
@@ -130,7 +131,8 @@ All calculations are performed via tools — not directly by the model.
 
 ### Clone the Repository
 
-git clone <your-repo-url>
+git clone <https://github.com/bismahashmi2/nexe-agent-internship.git>
+cd beginner
 cd ai-calculator-agent
 
 ---
@@ -142,7 +144,7 @@ cd ai-calculator-agent
 - uv add python-decouple
 
 ### Run the Project
-
+activate virtual environment by "source .venv/bin/activate"
 uv run python src/main.py
 
 ---

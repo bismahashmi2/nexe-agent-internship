@@ -49,6 +49,7 @@ multi-tool-agent/
 │   └── utils/
 │       └── clean_output.py
 │
+├── .venv
 ├── .env
 ├── .gitignore
 ├── README.md
@@ -95,6 +96,7 @@ Depending on the request, the agent may:
 Give me latest Robotics news
 
 #### Output
+```json
 {
   "tool_used": "web_search",
   "response": {
@@ -108,12 +110,13 @@ Give me latest Robotics news
     ]
   }
 }
-
+```
 ### 📧 Email Example
 #### Input
 Send an email to example@gmail.com with subject "AI News"
 
 #### Output
+```json
 {
   "tool_used": "send_email",
   "response": {
@@ -122,6 +125,7 @@ Send an email to example@gmail.com with subject "AI News"
   }
 }
 
+```
 --- 
 
 ### 🧰 Tools Used
@@ -137,7 +141,8 @@ All tasks are performed dynamically through tool calling.
 ### 📦 Installation
 
 ### Clone the Repository
-git clone <your-repo-url>
+git clone <https://github.com/bismahashmi2/nexe-agent-internship.git>
+cd intermediate
 cd multi-tool-agent
 
 ### Install Dependencies
@@ -148,7 +153,7 @@ cd multi-tool-agent
 - uv add ddgs
 
 ### Run the Project
-
+activate virtual environment by "source .venv/bin/activate"
 uv run python src/main.py
 
 ---
