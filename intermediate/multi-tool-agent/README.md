@@ -49,7 +49,6 @@ multi-tool-agent/
 │   └── utils/
 │       └── clean_output.py
 │
-├── .venv
 ├── .env
 ├── .gitignore
 ├── README.md
@@ -141,13 +140,18 @@ All tasks are performed dynamically through tool calling.
 ### 📦 Installation
 
 ### Clone the Repository
-git clone <https://github.com/bismahashmi2/nexe-agent-internship.git>
+
+```bash
+git clone https://github.com/bismahashmi2/nexe-agent-internship.git
+
 cd intermediate
 cd multi-tool-agent
+```
 
 ### Install Dependencies
 
 - uv init
+- uv venv .venv
 - uv add openai-agents
 - uv add python-decouple
 - uv add ddgs
