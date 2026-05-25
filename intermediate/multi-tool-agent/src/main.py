@@ -61,23 +61,50 @@ response = Runner.run_sync(
 # GET FINAL OUTPUT
 raw_output = getattr(response, "final_output", None)
 
-
-# SIMPLE RETRY
+# FALLBACK: extract tool outputs
 if not raw_output:
 
-    response = Runner.run_sync(
-        starting_agent=multi_tool_agent,
-        input=user_input + "\nIMPORTANT: Return only valid JSON."
-    )
+    try:
 
-    raw_output = getattr(response, "final_output", None)
+        tool_outputs = []
+
+        for item in response.new_items:
+
+            # Tool call outputs
+            if hasattr(item, "output"):
+
+                tool_outputs.append(item.output)
+
+        # Use collected tool outputs
+        if tool_outputs:
+
+            raw_output = {
+                "tool_outputs": tool_outputs
+            }
+
+    except Exception:
+        pass
+
+
+# FINAL SAFETY FALLBACK
+if not raw_output:
+
+    raw_output = {
+        "response": "No response generated."
+    }
 
 
 # CLEAN OUTPUT
 cleaned_response = clean_output(raw_output)
 
 
-# PRINT FINAL RESPONSE
-print(json.dumps(cleaned_response, indent=4))
+# PRINT RESPONSE
+print(
+    json.dumps(
+        cleaned_response,
+        indent=4
+    )
+)
+
 
 

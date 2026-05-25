@@ -19,7 +19,7 @@ export default function Home() {
   ];
 
   const comingSoonProjects = [
-    { title: "Coming Soon", description: "Exciting intermediate projects in development" },
+    { title: "Multi-Tool AI Agent", description: "An AI agent that can utilize multiple tools for complex tasks." },
     { title: "Coming Soon", description: "More intermediate projects on the way" },
   ];
 
