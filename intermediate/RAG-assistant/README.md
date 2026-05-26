@@ -125,7 +125,7 @@ AI Native Development is an approach where AI is integrated into the core design
 ---
 
 ### 🧠 Architecture Flow
-
+```text
 PDF
 ↓
 Chunks
@@ -139,7 +139,7 @@ Semantic Search
 Relevant Context
 ↓
 LLM Answer
-
+```
 ---
 
 ### 📦 Installation
