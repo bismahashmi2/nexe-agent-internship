@@ -50,9 +50,6 @@ rag-assistant/
 │   ├── gemini_config.py
 │   └── main.py
 │
-├── test_embeddings.py
-├── test_chroma.py
-│
 ├── .env
 ├── .gitignore
 ├── pyproject.toml
@@ -157,25 +154,6 @@ cd RAG-assistant
 
 ```
 
-### Install Dependencies
-
-- uv init
-- uv venv .venv
-- uv add openai
-- uv add openai-agents
-- uv add python-decouple
-
-## 📦 Installation
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/bismahashmi2/nexe-agent-internship.git
-
-cd intermediate
-cd RAG-assistant
-```
-
 ### Create Virtual Environment
 
 ```bash
@@ -218,7 +196,7 @@ python src/main.py
 
 - Openai
 
-- uv package manager and pip
+- uv package manager
 
 - Torch (CPU version supported)
 
