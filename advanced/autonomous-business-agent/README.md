@@ -187,18 +187,24 @@ source .venv/bin/activate
 ```
 
 ### Install Dependencies
+#### Core project dependencies (safe + lightweight)
 
 ```bash
-uv add pypdf openai openai-agents python-decouple
+uv add pypdf chromadb openai openai-agents python-decouple
+```
+#### ML / RAG dependencies (installed manually for stability)
 
-uv add chromadb 
-
+```bash
+# CPU-only PyTorch (prevents CUDA installation)
 uv pip install torch --index-url https://download.pytorch.org/whl/cpu
 
+# Sentence transformer model
 uv pip install sentence-transformers 
 
-uv pip install safetensors --no-deps
+# Required transformer ecosystem (manual control to avoid conflicts)
+uv pip install transformers tokenizers safetensors huggingface-hub
 
+# Scientific libraries
 python -m pip install scikit-learn scipy numpy
 
 ```
