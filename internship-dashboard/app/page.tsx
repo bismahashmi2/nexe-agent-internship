@@ -55,7 +55,14 @@ export default function Home() {
       githubUrl: "https://github.com/bismahashmi2/nexe-agent-internship/tree/main/advanced/autonomous-business-agent",
       liveDemo: null,
     },
-    { title: "Coming Soon", description: "Complex multi-agent systems coming soon" },
+    {
+      title: "Multi-Agent System",
+      description: "A collaborative multi-agent AI system where specialized agents communicate through a message bus and orchestrator to solve complex tasks through task delegation.",
+      features: ["Agent Communication", "Task Delegation", "Message Bus Pattern", "Orchestration Layer"],
+      techStack: ["Python", "OpenAI Agents SDK", "Gemini API", "Message Passing"],
+      githubUrl: "https://github.com/bismahashmi2/nexe-agent-internship/tree/main/advanced/multi-agent-system",
+      liveDemo: null,
+    },
   ];
 
   return (
@@ -257,91 +264,72 @@ export default function Home() {
             {advancedProjects.map((project, index) => (
               <div
                 key={index}
-                className={project.title === "Coming Soon"
-                  ? "relative bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30"
-                  : "group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-1"
-                }
+                className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-1"
               >
-                {project.title === "Coming Soon" ? (
-                  <div className="space-y-4 text-center">
-                    <div className="inline-block px-4 py-2 bg-orange-500/10 text-orange-400 text-sm font-semibold rounded-full border border-orange-500/30">
-                      Coming Soon
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-3">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-400 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative space-y-6">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white mb-3">
-                          {project.title}
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed">
-                          {project.description}
-                        </p>
-                      </div>
 
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-300 mb-3">
-                          Features
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.features?.map((feature, idx) => (
-                            <span
-                              key={idx}
-                              className="px-3 py-1 bg-gray-700/50 text-gray-300 text-sm rounded-full border border-gray-600/50"
-                            >
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-300 mb-3">
-                          Tech Stack
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.techStack?.map((tech, idx) => (
-                            <span
-                              key={idx}
-                              className="px-3 py-1 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 text-sm rounded-full border border-orange-500/30"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="flex gap-3 pt-4">
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-200 text-center"
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-3">
+                      Features
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.features?.map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-gray-700/50 text-gray-300 text-sm rounded-full border border-gray-600/50"
                         >
-                          GitHub
-                        </a>
-                        {project.liveDemo && (
-                          <a
-                            href={project.liveDemo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-200 text-center"
-                          >
-                            Live Demo
-                          </a>
-                        )}
-                      </div>
+                          {feature}
+                        </span>
+                      ))}
                     </div>
-                  </>
-                )}
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-3">
+                      Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack?.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 text-sm rounded-full border border-orange-500/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3 pt-4">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-200 text-center"
+                    >
+                      GitHub
+                    </a>
+                    {project.liveDemo && (
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-200 text-center"
+                      >
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
