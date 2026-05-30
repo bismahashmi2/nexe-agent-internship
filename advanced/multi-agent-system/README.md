@@ -39,7 +39,6 @@ multi-agent-system/
 │       ├── writer_agent.py
 │       └── __init__.py
 │
-├── .env
 ├── .gitignore
 ├── pyproject.toml
 └── README.md
