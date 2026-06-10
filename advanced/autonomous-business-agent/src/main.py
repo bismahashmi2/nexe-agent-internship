@@ -1,4 +1,4 @@
-from autonomous_agent import AutonomousAgent
+from src.autonomous_agent import AutonomousAgent
 
 agent = AutonomousAgent()
 

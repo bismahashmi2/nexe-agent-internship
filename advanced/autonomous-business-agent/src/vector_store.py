@@ -3,7 +3,14 @@ import chromadb
 def store_in_chroma(chunks, embeddings):
     client = chromadb.PersistentClient(path="chroma_db")
 
-    collection = client.get_or_create_collection(
+    # Delete existing collection if it exists and create new one
+    try:
+        client.delete_collection(name="rag_collection")
+        print("🗑️ Cleared existing collection")
+    except:
+        pass
+
+    collection = client.create_collection(
         name="rag_collection"
     )
 

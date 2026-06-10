@@ -1,8 +1,8 @@
-from retrieve import query_engine
+from src.retrieve import query_engine
 from datetime import datetime
 
 from agents import Runner
-from rag_agent import rag_agent
+from src.rag_agent import rag_agent
 
 
 class AutonomousAgent:
@@ -67,6 +67,48 @@ class AutonomousAgent:
         self.log("Answer generated")
 
         return response.final_output
+    
+    async def run_async(self, user_input):
+
+       self.logs = []
+
+       self.log("Agent started")
+
+       plan = self.plan(user_input)
+
+       context = self.retrieve(user_input)
+       print("\n===== CONTEXT =====")
+       print(context)
+       print("===================\n")
+
+       self.log("Generating AI response...")
+
+       context_text = "\n\n".join(
+        [f"[Chunk {i+1}]\n{c}" for i, c in enumerate(context)]
+       )
+
+       final_prompt = f"""
+       Context:
+       {context_text}
+
+       Question:
+       {user_input}
+       """
+
+       response = await Runner.run(
+        starting_agent=rag_agent,
+        input=final_prompt
+       )
+
+       self.log("Answer generated")
+       self.log("Agent finished")
+
+       return {
+         "plan": plan,
+         "result": response.final_output,
+         "logs": self.logs
+        }
+
 
     def run(self, user_input):
 
@@ -90,3 +132,12 @@ class AutonomousAgent:
             "result": final_answer,
             "logs": self.logs
         }
+
+# Function wrapper for API usage
+async def autonomous_agent(user_input):
+    """
+    Async wrapper for FastAPI.
+    """
+    agent = AutonomousAgent()
+    result = await agent.run_async(user_input)
+    return result["result"]

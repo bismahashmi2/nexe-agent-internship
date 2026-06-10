@@ -1,4 +1,4 @@
-from src.retrieve import query_engine
+from retrieve import query_engine
 
 def rag_query(question):
 

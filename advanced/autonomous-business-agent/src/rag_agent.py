@@ -1,5 +1,5 @@
 from agents import Agent
-from gemini_config import MODEL
+from src.gemini_config import MODEL
 
 # RAG Agent
 rag_agent = Agent(

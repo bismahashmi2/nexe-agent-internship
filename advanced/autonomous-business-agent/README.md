@@ -13,7 +13,7 @@ Built using:
 
 ---
 
-## 🚀 Features 
+## 🚀 Features
 
 - 🧠 Multi-step reasoning (Think → Retrieve → Answer pipeline)
 - 📋 Task planning system for structured execution
@@ -23,6 +23,8 @@ Built using:
 - 🤖 LLM-powered response generation (Gemini / OpenAI Agents SDK)
 - ⚡ CLI-based interactive agent system
 - 🧩 Modular agent architecture
+- 🌐 **Modern Web UI** with real-time chat interface and execution logs
+- 🚀 **FastAPI Backend** for seamless frontend-agent integration
 
 ---
 
@@ -48,6 +50,21 @@ autonomous-business-agent/
 │   ├── autonomous_agent.py
 │   └── gemini_config.py
 │
+├── web-ui/                    ← NEW: Web Interface
+│   ├── app/
+│   │   ├── page.tsx          ← Main chat interface
+│   │   ├── layout.tsx
+│   │   └── globals.css
+│   ├── components/
+│   │   ├── ChatInterface.tsx  ← Chat UI component
+│   │   └── ExecutionLogs.tsx  ← Real-time logs
+│   ├── api/
+│   │   ├── main.py           ← FastAPI backend
+│   │   └── requirements.txt
+│   ├── start.sh              ← Linux/Mac startup script
+│   ├── start.bat             ← Windows startup script
+│   └── README.md
+│
 ├── .env
 ├── .gitignore
 ├── pyproject.toml
@@ -55,7 +72,7 @@ autonomous-business-agent/
 ```
 
 ```text
-“We implemented a tool abstraction layer (rag_tool.py) to decouple retrieval logic from agent reasoning, enabling modular expansion into multi-agent systems.”
+"We implemented a tool abstraction layer (rag_tool.py) to decouple retrieval logic from agent reasoning, enabling modular expansion into multi-agent systems."
 ```
 
 ---
@@ -138,6 +155,10 @@ AI Native Development refers to systems where AI is integrated into core design.
 - 🤖 OpenAI Agents SDK
 - ⚡ Python
 - 📦 UV Package Manager
+- 🌐 Next.js 14 (Web UI)
+- 🚀 FastAPI (Backend API)
+- 🎨 Tailwind CSS (Styling)
+- ⚛️ React 18 (Frontend Framework)
 
 
 ---
@@ -199,7 +220,7 @@ uv add pypdf chromadb openai openai-agents python-decouple
 uv pip install torch --index-url https://download.pytorch.org/whl/cpu
 
 # Sentence transformer model
-uv pip install sentence-transformers 
+uv pip install sentence-transformers
 
 # Required transformer ecosystem (manual control to avoid conflicts)
 uv pip install transformers tokenizers safetensors huggingface-hub
@@ -209,12 +230,42 @@ python -m pip install scikit-learn scipy numpy
 
 ```
 
-### Run the Project
+#### Web UI Dependencies (Optional)
 
 ```bash
-python src/main.py
+# Install FastAPI dependencies
+pip install fastapi uvicorn pydantic python-multipart
+
+# Install frontend dependencies
+cd web-ui
+npm install
+cd ..
+```
+
+### Run the Project
+
+#### Option 1: CLI Mode (Original)
+
+```bash
+python -m src.main
 
 ```
+
+#### Option 2: Web UI Mode (New)
+
+```bash
+# Linux/Mac
+cd web-ui
+./start.sh
+
+# Windows
+cd web-ui
+start.bat
+```
+
+The web interface will be available at:
+- Frontend: `http://localhost:3002`
+- Backend API: `http://localhost:8000`
 
 ---
 
@@ -293,5 +344,16 @@ This project represents a transition from a simple RAG system to an Autonomous B
 
 ```text
 | thinking → planning → retrieving → reasoning → executing → logging
-
 ```
+
+**Two Interaction Modes:**
+
+1. **CLI Mode**: Traditional command-line interface for direct agent interaction
+2. **Web UI Mode**: Modern web interface with:
+   - Real-time chat interface
+   - Live execution logs
+   - Beautiful gradient UI
+   - FastAPI backend integration
+   - Responsive design
+
+Access the web interface at `http://localhost:3002` after running the startup script.

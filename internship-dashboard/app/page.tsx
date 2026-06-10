@@ -50,10 +50,10 @@ export default function Home() {
     {
       title: "Autonomous Business Agent",
       description: "An AI-powered autonomous agent system that performs multi-step reasoning, task planning, and execution logging while answering business questions using RAG.",
-      features: ["Multi-step Reasoning", "Task Planning", "Execution Logs", "RAG Integration"],
-      techStack: ["Python", "ChromaDB", "SentenceTransformers", "OpenAI Agents SDK"],
+      features: ["Multi-step Reasoning", "Task Planning", "Execution Logs", "RAG Integration", "Web UI"],
+      techStack: ["Python", "ChromaDB", "SentenceTransformers", "OpenAI Agents SDK", "Next.js", "FastAPI"],
       githubUrl: "https://github.com/bismahashmi2/nexe-agent-internship/tree/main/advanced/autonomous-business-agent",
-      liveDemo: null,
+      liveDemo: "http://localhost:3002",
     },
     {
       title: "Multi-Agent System",
