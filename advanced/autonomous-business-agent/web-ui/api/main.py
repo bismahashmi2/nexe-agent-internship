@@ -50,6 +50,7 @@ async def root():
 @app.post("/query", response_model=QueryResponse)
 async def process_query(request: QueryRequest):
     try:
+
         # Process the query using the autonomous agent
         agent = AutonomousAgent()
 
@@ -89,6 +90,9 @@ async def process_query(request: QueryRequest):
         )
 
     except Exception as e:
+        import traceback
+        traceback.print_exc() 
+        
         logs = [
             {
                 "timestamp": datetime.now().strftime("%H:%M:%S"),

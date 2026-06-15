@@ -10,10 +10,12 @@ CHROMA_PATH = BASE_DIR / "chroma_db"
 
 client = chromadb.PersistentClient(path=str(CHROMA_PATH))
 
-collection = client.get_or_create_collection(name="rag_collection")
+# collection = client.get_or_create_collection(name="rag_collection")
 
 
 def query_engine(query: str):
+
+    collection = client.get_collection(name="rag_collection")
 
     query_embedding = model.encode(query)
 

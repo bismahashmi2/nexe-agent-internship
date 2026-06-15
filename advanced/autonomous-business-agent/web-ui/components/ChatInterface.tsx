@@ -73,7 +73,7 @@ export default function ChatInterface({ onLogsUpdate }: ChatInterfaceProps) {
 
   return (
     <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-4">
+      <div className="bg-gradient-to-r from-blue-800 to-blue-600 p-4">
         <h2 className="text-2xl font-bold text-white">Chat with Agent</h2>
         <p className="text-white/80 text-sm">Ask questions about your business documents</p>
       </div>
@@ -94,7 +94,7 @@ export default function ChatInterface({ onLogsUpdate }: ChatInterfaceProps) {
             <div
               className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                 message.role === 'user'
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                  ? 'bg-gradient-to-r from-blue-800 to-blue-600 text-white'
                   : 'bg-white/20 text-white border border-white/30'
               }`}
             >
@@ -128,13 +128,13 @@ export default function ChatInterface({ onLogsUpdate }: ChatInterfaceProps) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="flex-1 bg-white/10 text-white placeholder-gray-400 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 border border-white/20"
+            className="flex-1 bg-white/10 text-white placeholder-gray-400 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-white/20"
             disabled={loading}
           />
           <button
             type="submit"
             disabled={loading || !input.trim()}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             Send
           </button>

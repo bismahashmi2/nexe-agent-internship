@@ -10,7 +10,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'chat' | 'documents'>('chat')
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-white mb-2">
@@ -28,7 +28,7 @@ export default function Home() {
               onClick={() => setActiveTab('chat')}
               className={`px-6 py-2 rounded-lg font-semibold transition-all ${
                 activeTab === 'chat'
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                  ? 'bg-gradient-to-r from-blue-800 to-blue-600 text-white'
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -38,7 +38,7 @@ export default function Home() {
               onClick={() => setActiveTab('documents')}
               className={`px-6 py-2 rounded-lg font-semibold transition-all ${
                 activeTab === 'documents'
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                  ? 'bg-gradient-to-r from-blue-800 to-blue-600 text-white'
                   : 'text-gray-300 hover:text-white'
               }`}
             >

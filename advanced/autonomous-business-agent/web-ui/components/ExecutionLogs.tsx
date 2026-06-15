@@ -13,7 +13,7 @@ interface ExecutionLogsProps {
 export default function ExecutionLogs({ logs }: ExecutionLogsProps) {
   return (
     <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden h-[calc(100vh-200px)]">
-      <div className="bg-gradient-to-r from-green-600 to-teal-600 p-4">
+      <div className="bg-gradient-to-r from-blue-700 to-blue-600 p-4">
         <h2 className="text-2xl font-bold text-white">Execution Logs</h2>
         <p className="text-white/80 text-sm">Real-time agent activity</p>
       </div>

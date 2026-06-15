@@ -107,14 +107,14 @@ export default function DocumentManager() {
 
   return (
     <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-4">
+      <div className="bg-gradient-to-r from-blue-900 to-blue-700 p-4">
         <h2 className="text-2xl font-bold text-white">Document Manager</h2>
         <p className="text-white/80 text-sm">Upload and manage your knowledge base</p>
       </div>
 
       <div className="p-6 space-y-6">
         {/* Upload Section */}
-        <div className="border-2 border-dashed border-white/30 rounded-xl p-6 text-center hover:border-purple-500/50 transition-colors">
+        <div className="border-2 border-dashed border-white/30 rounded-xl p-6 text-center hover:border-blue-500/50 transition-colors">
           <input
             type="file"
             accept=".pdf"
@@ -142,7 +142,7 @@ export default function DocumentManager() {
             <div className="mt-4">
               <div className="w-full bg-gray-700 rounded-full h-2">
                 <div
-                  className="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full transition-all duration-300"
+                  className="bg-gradient-to-r from-blue-600 to-blue-400 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${uploadProgress}%` }}
                 ></div>
               </div>
@@ -153,9 +153,9 @@ export default function DocumentManager() {
           {processing && (
             <div className="mt-4">
               <div className="flex items-center justify-center space-x-2">
-                <div className="w-3 h-3 bg-purple-500 rounded-full animate-bounce"></div>
-                <div className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                <div className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce"></div>
+                <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
               </div>
               <p className="text-white text-sm mt-2">Building vector database...</p>
             </div>
@@ -179,7 +179,7 @@ export default function DocumentManager() {
             <h3 className="text-lg font-semibold text-white">Uploaded Documents</h3>
             <button
               onClick={fetchDocuments}
-              className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
+              className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
             >
               🔄 Refresh
             </button>
@@ -195,7 +195,7 @@ export default function DocumentManager() {
               {documents.map((doc, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10 hover:border-purple-500/30 transition-colors"
+                  className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/30 transition-colors"
                 >
                   <div className="flex items-center space-x-3">
                     <span className="text-2xl">📄</span>
