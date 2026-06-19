@@ -26,14 +26,14 @@ A modern web interface for the Autonomous Business Agent with RAG pipeline integ
 ### 1. Install Frontend Dependencies
 
 ```bash
-cd web-ui
+cd web_ui
 npm install
 ```
 
 ### 2. Install Backend Dependencies
 
 ```bash
-cd web-ui/api
+cd web_ui/api
 pip install -r requirements.txt
 ```
 
@@ -50,7 +50,7 @@ pip install fastapi uvicorn pydantic python-multipart
 ### Start the Backend API Server
 
 ```bash
-# From the web-ui/api directory
+# From the web_ui/api directory
 python main.py
 ```
 
@@ -59,7 +59,7 @@ The API will be available at `http://localhost:8000`
 ### Start the Frontend Development Server
 
 ```bash
-# From the web-ui directory
+# From the web_ui directory
 npm run dev
 ```
 
@@ -106,7 +106,7 @@ npm start
 ## Project Structure
 
 ```
-web-ui/
+web_ui/
 ├── app/
 │   ├── globals.css       # Global styles
 │   ├── layout.tsx        # Root layout
