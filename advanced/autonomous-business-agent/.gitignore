@@ -9,6 +9,8 @@ wheels/
 # Database files
 *.db
 *.sqlite3
+chroma_db/
+data/
 
 # Node modules
 node_modules/
@@ -17,4 +19,6 @@ node_modules/
 .venv
 
 # Environment variables
-.envchroma_db/
+.env
+
+
