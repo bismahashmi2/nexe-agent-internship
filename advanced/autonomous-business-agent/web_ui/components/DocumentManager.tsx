@@ -18,7 +18,7 @@ export default function DocumentManager() {
 
   const fetchDocuments = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/documents')
+      const response = await axios.get('https://hashmi-hashmi-autonomous-business-agent.hf.space/documents')
       setDocuments(response.data.documents)
     } catch (error) {
       console.error('Error fetching documents:', error)
@@ -43,7 +43,7 @@ export default function DocumentManager() {
 
     try {
       // Upload file
-      await axios.post('http://localhost:8000/upload', formData, {
+      await axios.post('https://hashmi-hashmi-autonomous-business-agent.hf.space/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
         onUploadProgress: (progressEvent) => {
           const progress = progressEvent.total
@@ -58,7 +58,7 @@ export default function DocumentManager() {
       setProcessing(true)
 
       // Process document and rebuild database
-      await axios.post('http://localhost:8000/rebuild-db')
+      await axios.post('https://hashmi-hashmi-autonomous-business-agent.hf.space/rebuild-db')
 
       setProcessing(false)
       setMessage({ type: 'success', text: 'Document processed and added to knowledge base!' })
@@ -82,12 +82,12 @@ export default function DocumentManager() {
     if (!confirm(`Are you sure you want to delete ${filename}?`)) return
 
     try {
-      await axios.delete(`http://localhost:8000/documents/${filename}`)
+      await axios.delete(`https://hashmi-hashmi-autonomous-business-agent.hf.space/documents/${filename}`)
       setMessage({ type: 'success', text: 'Document deleted successfully!' })
 
       // Rebuild database
       setProcessing(true)
-      await axios.post('http://localhost:8000/rebuild-db')
+      await axios.post('https://hashmi-hashmi-autonomous-business-agent.hf.space/rebuild-db')
       setProcessing(false)
 
       // Refresh document list

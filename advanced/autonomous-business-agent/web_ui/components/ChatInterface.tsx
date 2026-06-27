@@ -43,7 +43,7 @@ export default function ChatInterface({ onLogsUpdate }: ChatInterfaceProps) {
 
     try {
       // Call the Python backend API
-      const response = await axios.post('http://localhost:8000/query', {
+      const response = await axios.post('https://hashmi-hashmi-autonomous-business-agent.hf.space/query', {
         query: input
       })
 
