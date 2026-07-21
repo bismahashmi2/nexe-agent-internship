@@ -11,6 +11,7 @@ wheels/
 *.sqlite3
 chroma_db/
 data/
+clean-space/
 
 # Node modules
 node_modules/
