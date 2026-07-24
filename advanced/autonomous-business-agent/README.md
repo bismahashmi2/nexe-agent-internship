@@ -1,361 +1,346 @@
-https://huggingface.co/spaces/hashmi-hashmi/autonomous-business-agent (deployed huggingface link)
+# 🤖 Autonomous Business Agent
 
-# 🤖 Autonomous Business Agent (AI Execution System)
+**A full-stack AI application that answers questions over uploaded PDF documents using a Retrieval-Augmented Generation (RAG) pipeline.**
 
-An **AI-powered autonomous agent system** that performs multi-step reasoning, task planning, and execution logging while answering user business questions using a Retrieval-Augmented Generation (RAG) pipeline.
+The system simulates an autonomous AI worker capable of:
 
-The system simulates a real AI worker that can think, plan, retrieve knowledge, and generate structured responses using an LLM.
+- 🧠 Planning tasks
+- 🔍 Retrieving relevant knowledge
+- 🤖 Reasoning using an LLM
+- 📜 Logging every execution step
 
-Built using:
-- 🧠 SentenceTransformers (Embeddings)
-- 🗄️ ChromaDB (Vector Database)
-- 📄 PyPDF (Document Processing)
-- 🤖 OpenAI Agents SDK (Response Layer)
-- ⚡ Python + UV
+It includes a **FastAPI backend**, a **Next.js frontend**, semantic search with **ChromaDB**, and is deployed on **Hugging Face Spaces** and **Vercel**.
 
 ---
 
-## 🚀 Features
+# 🌐 Live Demo
 
-- 🧠 Multi-step reasoning (Think → Retrieve → Answer pipeline)
-- 📋 Task planning system for structured execution
-- 📜 Execution logs with timestamps
-- 🔍 Semantic retrieval using ChromaDB
-- 📄 PDF-based knowledge base (RAG integration)
-- 🤖 LLM-powered response generation (Gemini / OpenAI Agents SDK)
-- ⚡ CLI-based interactive agent system
-- 🧩 Modular agent architecture
-- 🌐 **Modern Web UI** with real-time chat interface and execution logs
-- 🚀 **FastAPI Backend** for seamless frontend-agent integration
+### Backend API (Hugging Face)
+
+https://huggingface.co/spaces/hashmi-hashmi/autonomous-business-agent
+
+### Frontend (Vercel)
+
+https://nexe-agent-internship-u6xv.vercel.app/
 
 ---
 
-## 🏗️ Project Structure
+# 📸 Screenshots
 
-```text
+### 💬 Chat Interface
+
+![Chat Interface](assets/chat-interface.png)
+
+Ask questions through the web interface while viewing the agent's responses and execution logs.
+
+---
+
+### 📄 Document Manager
+
+![Document Manager](assets/document-manager(1).png)
+![Document Manager](assets/document-manager(2).png)
+
+Upload, manage, and process PDF documents to build the RAG knowledge base.
+
+---
+
+### 🔌 FastAPI Swagger API
+
+![Swagger API](assets/swagger-api.png)
+
+Interactive API documentation for testing backend endpoints such as `/query`, `/upload`, `/documents`, and `/rebuild-db`.
+
+---
+
+### 📜 Backend Execution Logs
+
+![Execution Logs](assets/execution-logs(1).png)
+![Execution Logs](assets/execution-logs(2).png)
+![Execution Logs](assets/execution-logs(3).png)
+![Execution Logs](assets/execution-logs(4).png)
+
+Execution pipeline showing planning, retrieval, reasoning, and response generation in real time.
+
+---
+
+# ✨ Features
+
+- 📄 Upload PDF documents
+- 🔍 Semantic search using ChromaDB
+- 🧠 Retrieval-Augmented Generation (RAG)
+- 🤖 LLM-powered question answering
+- 📋 Autonomous task planning
+- 📜 Execution logs for every request
+- ⚡ FastAPI backend
+- 🌐 Modern Next.js frontend
+- 🚀 Deployed on Hugging Face + Vercel
+
+---
+
+# 🏗 Architecture
+
+```
+                User
+                  │
+                  ▼
+         Next.js Frontend
+                  │
+                  ▼
+          FastAPI Backend
+                  │
+                  ▼
+        Autonomous AI Agent
+                  │
+       ┌──────────┴──────────┐
+       ▼                          ▼
+ ChromaDB Retrieval            Gemini LLM
+       │                           │
+       └──────────┬──────────┘
+                     ▼
+               Final AI Response
+```
+
+---
+
+# ⚙️ How It Works
+
+```
+User Question
+      │
+      ▼
+Task Planning
+      │
+      ▼
+Vector Retrieval
+      │
+      ▼
+Context Injection
+      │
+      ▼
+LLM Reasoning
+      │
+      ▼
+Final Answer
+      │
+      ▼
+Execution Logs
+```
+
+---
+
+# 💬 Example
+
+### User
+
+```
+What is AI Native Development?
+```
+
+### Agent
+
+```
+AI Native Development refers to systems where AI is integrated into
+the core design rather than being added later...
+```
+
+### Execution Logs
+
+```
+Agent started
+↓
+
+Creating plan
+
+↓
+
+Retrieving context
+
+↓
+
+Generating response
+
+↓
+
+Finished
+```
+
+---
+
+# 🧠 Technologies Used
+
+### AI
+
+- OpenAI Agents SDK
+- Gemini API
+- SentenceTransformers
+- ChromaDB
+
+### Backend
+
+- Python
+- FastAPI
+- Uvicorn
+
+### Frontend
+
+- Next.js 14
+- React
+- Tailwind CSS
+- Axios
+
+### Other
+
+- PyPDF
+- UV Package Manager
+- Hugging Face Spaces
+- Vercel
+
+---
+
+# 📂 Project Structure
+
+```
 autonomous-business-agent/
+
+├── assets/
+│   ├── chat-interface.png
+│   ├── document-manager.png
+│   ├── swagger-api.png
+│   └── execution-logs.png
 │
 ├── data/
-│   └── ai_dev.pdf
 │
 ├── chroma_db/
 │
 ├── src/
-│   ├── read_pdf.py
-│   ├── chunk_text.py
-│   ├── embeddings.py
-│   ├── vector_store.py
-│   ├── retrieve.py
-│   ├── rag_agent.py
-│   ├── rag_tool.py   ← (optional abstraction layer)
-│   ├── main.py
 │   ├── autonomous_agent.py
-│   └── gemini_config.py
+│   ├── retrieve.py
+│   ├── vector_store.py
+│   ├── build_db.py
+│   └── ...
 │
-├── web-ui/                    ← NEW: Web Interface
+├── web_ui/
 │   ├── app/
-│   │   ├── page.tsx          ← Main chat interface
-│   │   ├── layout.tsx
-│   │   └── globals.css
 │   ├── components/
-│   │   ├── ChatInterface.tsx  ← Chat UI component
-│   │   └── ExecutionLogs.tsx  ← Real-time logs
 │   ├── api/
-│   │   ├── main.py           ← FastAPI backend
-│   │   └── requirements.txt
-│   ├── start.sh              ← Linux/Mac startup script
-│   ├── start.bat             ← Windows startup script
-│   └── README.md
+│   └── ...
 │
-├── .env
-├── .gitignore
-├── pyproject.toml
-└── README.md
-```
-
-```text
-"We implemented a tool abstraction layer (rag_tool.py) to decouple retrieval logic from agent reasoning, enabling modular expansion into multi-agent systems."
+├── README.md
+└── pyproject.toml
 ```
 
 ---
 
-
-## ⚙️ How It Works
-
-
-### 1. User Input
-
-The user enters a business-related query in the CLI.
-
-### 2. Agent Planning
-
-The agent creates a structured plan:
-
-- Understand query
-- Retrieve relevant context
-- Generate final answer
-
-### 3. Retrieval (RAG System)
-
-The query is converted into embeddings and matched with stored vectors in ChromaDB.
-
-### 4. Context Injection
-
-Relevant chunks from the document are retrieved and passed to the agent.
-
-### 5. Execution (LLM Reasoning)
-
-The agent uses an LLM to generate a final answer based on:
-
-- user question
-- retrieved context
-- system instructions
-
-### 6. Execution Logs
-
-Every step is logged with timestamps:
-
-- planning stage
-- retrieval stage
-- execution stage
-- completion stage
-
----
-
-### 🧪 Example Usage
-
-#### Input:
-```bash 
-
-What is AI Native Development?
-```
-#### Output:
-```bash
-
-📌 FINAL ANSWER:
-AI Native Development refers to systems where AI is integrated into core design...
-
- 📜EXECUTION LOGS:
-[15:25:00] Agent started
-[15:25:00] Creating plan...
-[15:25:00] Plan: ['Understand question', 'Retrieve relevant context from vector DB', 'Generate final answer']
-[15:25:00] Retrieving from RAG system...
-[15:25:00] Context retrieved
-[15:25:00] Generating AI response...
-[15:25:15] Answer generated
-[15:25:15] Agent finished
-
-```
-
---- 
-
-### 🧰 Technologies Used
-
-- 🧠 SentenceTransformers (Embeddings)
-- 🗄️ ChromaDB (Vector Database)
-- 📄 PyPDF (Document Processing)
-- 🤖 OpenAI Agents SDK
-- ⚡ Python
-- 📦 UV Package Manager
-- 🌐 Next.js 14 (Web UI)
-- 🚀 FastAPI (Backend API)
-- 🎨 Tailwind CSS (Styling)
-- ⚛️ React 18 (Frontend Framework)
-
-
----
-
-### 🧠 Architecture Flow
-
-```text
-User Input
-↓
-Agent Planning
-↓
-Query Embedding
-↓
-Vector Search (ChromaDB)
-↓
-Context Retrieval
-↓
-LLM Reasoning
-↓
-Final Answer
-↓
-Execution Logs
-```
----
-
-### 📦 Installation
-
-### Clone the Repository
+# 🚀 Running Locally
 
 ```bash
-
 git clone https://github.com/bismahashmi2/nexe-agent-internship.git
 
+cd advanced/autonomous-business-agent
 
-cd advanced
-
-cd autonomous-business-agent
-
-```
-
-### Create Virtual Environment
-
-```bash
 uv venv
+
 source .venv/bin/activate
-
 ```
 
-### Install Dependencies
-#### Core project dependencies (safe + lightweight)
+Install dependencies
 
 ```bash
-uv add pypdf chromadb openai openai-agents python-decouple
-```
-#### ML / RAG dependencies (installed manually for stability)
-
-```bash
-# CPU-only PyTorch (prevents CUDA installation)
-uv pip install torch --index-url https://download.pytorch.org/whl/cpu
-
-# Sentence transformer model
-uv pip install sentence-transformers
-
-# Required transformer ecosystem (manual control to avoid conflicts)
-uv pip install transformers tokenizers safetensors huggingface-hub
-
-# Scientific libraries
-python -m pip install scikit-learn scipy numpy
-
+uv sync
 ```
 
-#### Web UI Dependencies (Optional)
-
-```bash
-# Install FastAPI dependencies
-pip install fastapi uvicorn pydantic python-multipart
-
-# Install frontend dependencies
-cd web-ui
-npm install
-cd ..
-```
-
-### Run the Project
-
-#### Option 1: CLI Mode (Original)
+Run CLI
 
 ```bash
 python -m src.main
-
 ```
 
-#### Option 2: Web UI Mode (New)
+Run Web UI
 
 ```bash
-# Linux/Mac
-cd web-ui
-./start.sh
+cd web_ui
 
-# Windows
-cd web-ui
-start.bat
+npm install
+
+npm run dev
 ```
 
-The web interface will be available at:
-- Frontend: `http://localhost:3002`
-- Backend API: `http://localhost:8000`
+---
+
+# 💡 Challenges Solved
+
+- Designed a modular autonomous AI agent architecture.
+- Built a Retrieval-Augmented Generation (RAG) pipeline.
+- Integrated ChromaDB for semantic document search.
+- Connected a FastAPI backend with a Next.js frontend.
+- Implemented PDF upload with automatic vector database rebuilding.
+- Deployed the backend on Hugging Face Spaces.
+- Deployed the frontend on Vercel.
+- Debugged deployment issues involving API routing, environment variables, and persistent vector databases.
 
 ---
 
+# 🎯 Learning Outcomes
 
-### 📌 Requirements
+This project strengthened my understanding of:
 
-- Python 3.10+
-
-- OpenAI / Gemini model support via Agents SDK
-
-- Openai
-
-- uv package manager
-
-- Torch (CPU version supported)
-
-- ChromaDB
-
-- SentenceTransformers 
-
-- PyPDF
+- Autonomous AI Agents
+- RAG Pipelines
+- Semantic Search
+- Vector Databases
+- AI Workflow Orchestration
+- FastAPI APIs
+- Full-Stack AI Applications
+- Deployment & Debugging
 
 ---
 
-### 🎯 Key Concepts
+# 🛣 Future Improvements
 
-This project demonstrates:
-
-- Autonomous AI agent design
-- Multi-step reasoning
-- Task planning systems
-- Execution logging
-- Retrieval-Augmented Generation (RAG)
-- Vector database search
-- Context-aware LLM reasoning
-- Modular AI architecture
-
+- Better chunking strategy
+- Hybrid Search (BM25 + Embeddings)
+- Source citations
+- Streaming responses
+- Authentication
+- Conversation memory
+- Multiple collections
+- Docker support
+- Role-based access control
 
 ---
 
-### ⚠️ Notes
+# 👩‍💻 Author
 
-- PDF used: ai_dev.pdf
-
-- ChromaDB stores data locally in chroma_db/
-
-- Embeddings are generated using all-MiniLM-L6-v2
-
-- Embedding model downloads once from HuggingFace
-
-- System is fully local except LLM inference
-
-- Designed as a lightweight autonomous agent framework
-
+Originally developed during an **Agentic AI Developer Internship** and later extended with a complete web interface, deployment pipeline, and document management system.
 
 ---
 
+# 📌 Project Summary
 
-### 👨‍💻 Author
+This project demonstrates how an autonomous AI system can:
 
-Built as part of an Agentic AI Internship Task.
+```
+Think
 
-Focused on learning:
+↓
 
-- Autonomous agent design
-- Multi-step reasoning systems
-- RAG pipelines
-- Execution tracking systems
-- AI workflow orchestration
+Plan
 
----
+↓
 
-### 🏁 Final Summary
+Retrieve
 
-This project represents a transition from a simple RAG system to an Autonomous Business Agent capable of:
+↓
 
-```text
-| thinking → planning → retrieving → reasoning → executing → logging
+Reason
+
+↓
+
+Execute
+
+↓
+
+Explain
 ```
 
-**Two Interaction Modes:**
-
-1. **CLI Mode**: Traditional command-line interface for direct agent interaction
-2. **Web UI Mode**: Modern web interface with:
-   - Real-time chat interface
-   - Live execution logs
-   - Beautiful gradient UI
-   - FastAPI backend integration
-   - Responsive design
-
-Access the web interface at `http://localhost:3002` after running the startup script.
+while providing a complete user experience through both a command-line interface and a modern web application.
