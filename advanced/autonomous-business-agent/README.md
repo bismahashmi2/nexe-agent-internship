@@ -92,12 +92,16 @@ Execution pipeline showing planning, retrieval, reasoning, and response generati
         Autonomous AI Agent
                   │
        ┌──────────┴──────────┐
-       ▼                          ▼
- ChromaDB Retrieval            Gemini LLM
-       │                           │
+       ▼                     ▼
+ ChromaDB Retrieval     Gemini LLM
+       │                     │
        └──────────┬──────────┘
-                     ▼
-               Final AI Response
+                  ▼
+          Final AI Response
+```
+
+
+
 ```
 
 ---
