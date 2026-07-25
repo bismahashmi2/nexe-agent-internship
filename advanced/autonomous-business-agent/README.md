@@ -102,8 +102,6 @@ Execution pipeline showing planning, retrieval, reasoning, and response generati
 
 
 
-```
-
 ---
 
 # ⚙️ How It Works
