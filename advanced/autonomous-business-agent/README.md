@@ -22,7 +22,7 @@ https://huggingface.co/spaces/hashmi-hashmi/autonomous-business-agent
 ### Frontend (Vercel)
 
 https://nexe-agent-internship-u6xv.vercel.app/
-[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://your-vercel-app.vercel.app)
+
 
 ---
 
