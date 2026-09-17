@@ -28,46 +28,18 @@ The project is divided into multiple levels:
 ```text
 nexe-agent-internship/
 ├── README.md
+│
 ├── beginner/
 │   ├── ai-calculator-agent/
-│   │   ├── src/
-│   │   ├── memory.json
-│   │   ├── README.md
-│   │   └── pyproject.toml
 │   └── tool-calling-ai-agent/
-│       ├── src/
-│       ├── README.md
-│       └── pyproject.toml
+│
 ├── intermediate/
 │   ├── multi-tool-agent/
-│   │   ├── src/
-│   │   ├── README.md
-│   │   └── pyproject.toml
 │   └── RAG-assistant/
-│       ├── src/
-│       ├── data/
-│       ├── chroma_db/
-│       ├── README.md
-│       └── pyproject.toml
+│
 ├── advanced/
 │   ├── autonomous-business-agent/
-│   │   ├── src/
-│   │   ├── data/
-│   │   ├── assets/
-│   │   ├── chroma_db/
-│   │   ├── web_ui/
-│   │   ├── README.md
-│   │   ├── requirements.txt
-│   │   └── pyproject.toml
 │   └── multi-agent-system/
-│       ├── src/
-│       ├── README.md
-│       └── pyproject.toml
-├── internship-dashboard/
-│   ├── app/
-│   ├── public/
-│   ├── README.md
-│   ├── package.json
-│   ├── next.config.ts
-│   └── tsconfig.json
+│
+└── internship-dashboard/
 ```
